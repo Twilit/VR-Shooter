@@ -6,68 +6,19 @@ using VRTK;
 public class Gun : MonoBehaviour
 {
     public GameObject bullet;
-    VRTK_ControllerEvents leftCon;
-    VRTK_ControllerEvents rightCon;
     Transform muzzle;
     LayerMask layermask;
 
+    SDK_BaseController leftCon;
+    SDK_BaseController rightCon;
+
     bool canShoot;
-
-    bool leftHeld;
-    bool rightHeld;
-
-    bool LeftHeld
-    {
-        get
-        {
-            return leftHeld;
-        }
-
-        set
-        {
-            leftHeld = value;
-        }
-    }
-
-    bool RightHeld
-    {
-        get
-        {
-            return rightHeld;
-        }
-
-        set
-        {
-            rightHeld = value;
-        }
-    }
-
-    bool triggerIsPressed;
-
-    bool TriggerIsPressed
-    {
-        get
-        {
-            return triggerIsPressed;
-        }
-
-        set
-        {
-            if (value == true && triggerIsPressed != true)
-            {
-                Shoot(Vector3.zero);
-            }
-
-            triggerIsPressed = value;
-        }
-    }
 
     void Start()
     {
-        muzzle = transform.GetChild(1).GetChild(2);
+        //leftCon = VRTK_DeviceFinder.
 
-        leftCon = GameObject.FindGameObjectWithTag("LeftController").GetComponent<VRTK_ControllerEvents>();
-        rightCon = GameObject.FindGameObjectWithTag("RightController").GetComponent<VRTK_ControllerEvents>();
+        muzzle = transform.GetChild(1).GetChild(2);
 
         layermask = LayerMask.GetMask("Bullet", "Interactable");
         layermask = ~layermask;
@@ -86,22 +37,6 @@ public class Gun : MonoBehaviour
         bulletInstance = Instantiate(bullet, muzzle.position, muzzle.rotation);
 
         bulletInstance.GetComponent<Rigidbody>().AddForce(muzzle.forward * 3000f);
-    }
-
-    void IgnoreThisRubbish()
-    {
-        LeftHeld = GetComponent<VRTK_InteractableObject>().IsGrabbed(grabbedBy: leftCon.gameObject);
-        RightHeld = GetComponent<VRTK_InteractableObject>().IsGrabbed(grabbedBy: rightCon.gameObject);
-
-        if ((leftCon.triggerPressed && leftHeld) ||
-            (rightCon.triggerPressed && rightHeld))
-        {
-            TriggerIsPressed = true;
-        }
-        else
-        {
-            TriggerIsPressed = false;
-        }
     }
 
     public void Shoot(Vector3 bulletOffset)
