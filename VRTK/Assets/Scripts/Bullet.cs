@@ -9,6 +9,8 @@ public class Bullet : MonoBehaviour
 
     Rigidbody rb;
 
+    //use static variable for bullet count
+
     void Awake ()
 	{
         start = transform.position;
