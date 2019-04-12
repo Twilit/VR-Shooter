@@ -29,7 +29,7 @@ public class Bullet : MonoBehaviour
             rb.isKinematic = false;
             rb.useGravity = true;
 
-            rb.velocity = (transform.forward + (Random.insideUnitSphere * 0.1f)) * speed;
+            rb.velocity = (transform.forward + (Random.insideUnitSphere * 1f)) * speed;
 
             StartCoroutine("Decay", 70f);
         }
