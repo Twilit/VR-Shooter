@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour 
 {
+    public TargetController targetCon;
+
     void Start () 
 	{
 
