@@ -40,9 +40,24 @@ GameObject:
   - component: {fileID: 54464623703464842}
   - component: {fileID: 114969831520627416}
   - component: {fileID: 114005802619894048}
-  - component: {fileID: 114056075044376866}
+  - component: {fileID: 114165587569295774}
   m_Layer: 10
   m_Name: Oar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1821981598867996
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4035581517224276}
+  m_Layer: 10
+  m_Name: Snap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,6 +81,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4035581517224276
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1821981598867996}
+  m_LocalRotation: {x: -0.42261827, y: 0, z: 0, w: 0.9063079}
+  m_LocalPosition: {x: 0, y: -0.207, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4193514126376202}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: -50, y: 0, z: 0}
 --- !u!4 &4193514126376202
 Transform:
   m_ObjectHideFlags: 1
@@ -73,11 +101,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1790567894662714}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.2, y: 0.8175, z: -0.1}
+  m_LocalPosition: {x: 1.4128342, y: 0.79621595, z: -0.293}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4472050851811520}
   - {fileID: 4410674510873960}
+  - {fileID: 4035581517224276}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -229,13 +258,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ec2ac476f2fc9a45a4e69712580a603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  precisionGrab: 1
-  rightSnapHandle: {fileID: 0}
-  leftSnapHandle: {fileID: 0}
+  precisionGrab: 0
+  rightSnapHandle: {fileID: 4035581517224276}
+  leftSnapHandle: {fileID: 4035581517224276}
   throwVelocityWithAttachDistance: 0
   throwMultiplier: 1
   onGrabCollisionDelay: 0
---- !u!114 &114056075044376866
+--- !u!114 &114165587569295774
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -243,12 +272,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1790567894662714}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e07bf5330424dbc4e94d412f30441b0c, type: 3}
+  m_Script: {fileID: 11500000, guid: 18055ba762aa3994f9c10208cd088bc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ungrabDistance: 0.5
-  releaseSnapSpeed: 0.1
-  lockZRotation: 1
 --- !u!114 &114969831520627416
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -271,7 +297,7 @@ MonoBehaviour:
   grabOverrideButton: 0
   allowedGrabControllers: 0
   grabAttachMechanicScript: {fileID: 114005802619894048}
-  secondaryGrabActionScript: {fileID: 114056075044376866}
+  secondaryGrabActionScript: {fileID: 114165587569295774}
   isUsable: 0
   holdButtonToUse: 1
   useOnlyIfGrabbed: 0

@@ -52,6 +52,11 @@ public class Target : MonoBehaviour
 
     public IEnumerator TargetMoveDown()
     {
+        if (GameController.started)
+        {
+            GameController.score += 20;
+        }
+
         transform.GetChild(0).GetChild(0).GetComponent<Renderer>().material = yellow;
 
         if (currentState == State.Open)
@@ -86,7 +91,7 @@ public class Target : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            collision.transform.GetComponent<Rigidbody>().velocity *= 0.4f; 
+            collision.transform.GetComponent<Rigidbody>().velocity *= 0.4f;            
 
             TargetOn(false);
         }
