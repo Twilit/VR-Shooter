@@ -14,6 +14,9 @@ public class DisplayScore : MonoBehaviour {
 
     void LateUpdate()
     {
-        scoreCounter.text = "<size=50%>SCORE\n<size=130%>" + GameController.score;
+        if (GameController.started)
+        {
+            scoreCounter.text = "<size=50%>SCORE\n<size=130%>" + GameController.score;
+        }        
     }
 }

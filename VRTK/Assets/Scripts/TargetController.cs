@@ -12,12 +12,19 @@ public class TargetController : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine("GetOpenTargets");
+        
     }
 
 	void Update ()
 	{
-        
+        if (GameController.started)
+        {
+            StartCoroutine("GetOpenTargets");
+        }
+        else
+        {
+            StopCoroutine("GetOpenTargets");
+        }
 	}
 
     IEnumerator GetOpenTargets()

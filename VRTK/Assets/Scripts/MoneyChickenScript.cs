@@ -19,7 +19,17 @@ public class MoneyChickenScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Oar")
         {
-            GameController.money += 10;
+            if (!GameController.started)
+            {
+                GameController.time = 90;
+                GameController.score = 0;
+                GameController.money = 0;
+                GameController.started = true;
+            }
+            else
+            {
+                GameController.money += 10;
+            }            
         }
     }
 }

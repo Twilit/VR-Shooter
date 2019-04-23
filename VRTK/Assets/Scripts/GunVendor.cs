@@ -18,11 +18,11 @@ public class GunVendor : ControllableReactor
         }
         else if (Gun.tag == "Rifle")
         {
-            gunCost = 120;
+            gunCost = 270;
         }
         else if (Gun.tag == "Shotgun")
         {
-            gunCost = 270;
+            gunCost = 120;
         }
     }
 

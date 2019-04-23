@@ -14,6 +14,9 @@ public class DisplayTime : MonoBehaviour {
 	
 	void LateUpdate ()
     {
-        timeCounter.text = GameController.time + " <size=60%>seconds";
+        if (GameController.started)
+        {
+            timeCounter.text = GameController.time.ToString("F2") + "\n<size=60%>seconds";
+        }
 	}
 }

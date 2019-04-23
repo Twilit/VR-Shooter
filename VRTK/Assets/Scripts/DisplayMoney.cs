@@ -14,6 +14,9 @@ public class DisplayMoney : MonoBehaviour
 	
 	void LateUpdate ()
     {
-        moneyCounter.text = "<size=60%>£<size=100%>"+ GameController.money;
+        if (GameController.started)
+        {
+            moneyCounter.text = "<size=60%>£<size=100%>" + GameController.money;
+        }
 	}
 }
